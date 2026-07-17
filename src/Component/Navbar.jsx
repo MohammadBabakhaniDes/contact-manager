@@ -33,8 +33,21 @@ const Navbar = () => {
       >
         <Grid xs={path ? 0 : 8} md={6.3} lg={7.3}>
           <Box sx={{ display: { xs: path ? "none" : "flex", md: "flex" } }}>
-            <ContactsSharp sx={{ mt: {xs: 3, md: 2.5}, mr: 1.5, fontSize: {xs: "15px", md: "23px"} }} />
-            <Typography variant="h6" sx={{fontSize: {xs: "13px", md: "18px"}, mt: {xs: 2.5, md: 2}}} color="text.primary">
+            <ContactsSharp
+              sx={{
+                mt: { xs: 3, md: 3 },
+                mr: 1.5,
+                fontSize: { xs: "15px", md: "23px" },
+              }}
+            />
+            <Typography
+              variant="h6"
+              sx={{
+                fontSize: { xs: "13px", md: "18px" },
+                mt: { xs: 2.5, md: 2.5 },
+              }}
+              color="text.primary"
+            >
               وب اپلیکیشن مدیریت مخاطبین
             </Typography>
           </Box>
@@ -54,7 +67,7 @@ const Navbar = () => {
           xs={1.9}
           md={1}
           lg={0.5}
-          sx={{ mt: { xs: 0.5, md: 1 }, display: "flex", flexDirection: "row" }}
+          sx={{ mt: 1.2, display: "flex", flexDirection: "row" }}
         >
           <ThemeActionButton />
         </Grid>

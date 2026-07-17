@@ -27,19 +27,23 @@ export default function MenuOfViewDetail({
     >
       <MenuItem
         onClick={() => {
-          navigate(`/contacts/${contact.id}`);
+          navigate(`contacts/${contact.id}`);
         }}
       >
         نمایش
       </MenuItem>
       <MenuItem
         onClick={() => {
-          navigate(`/contacts/edit/${contact.id}`);
+          navigate(`contacts/edit/${contact.id}`);
         }}
       >
         ویرایش
       </MenuItem>      
-      <AlertDelete isDark={isDark} contact={contact} />
+      <AlertDelete isDark={isDark} contact={contact} />                                                    
     </Menu>
   );
 }
+
+
+
+

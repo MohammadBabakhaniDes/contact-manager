@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <NotFound />
+    errorElement: <NotFound />, 
   },
   {
     path: "/contacts/:contactId",
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     path: "/contacts/edit/:contactId",
     element: <EditContact />
   }
-]);
+], {basename: "/contact-manager"});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

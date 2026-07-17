@@ -12,7 +12,6 @@ import ListOfContacts from "./Component/Contact/ListOfContacts";
 
 /** */
 
-
 const App = () => {
   let { statues } = useSelector((state) => state.contacts);
   const dispatch = useDispatch();
@@ -41,23 +40,24 @@ const App = () => {
     return (
       <>
         <Typography> &nbsp;</Typography>
-        <CusLink        
+        <CusLink
           m="12px 0 0 0"
-          to={"/contacts/add"}
-          w={232}
+          to={"contacts/add"}
+          w={{ xs: 160,sm: 180, md: 232 }}
           color={isDark ? "#fff" : "#000"}
           bcolor={isDark ? darkblue : amber}
           fw="normal"
-          icon={<AddCircle sx={{ ml: 0.5, mt: 0.1 }} />}
+          icon={
+            <AddCircle
+              sx={{ ml: 0.5, mt: 0.1, fontSize: { xs: 13, sm: 14, md: 15 } }}
+            />
+          }
           px={"2vw"}
-          fs={17}
+          fs={{ xs: 13, sm: 14, md: 17 }}
         >
           ساخت مخاطب جدید
         </CusLink>
 
-        
-
-        
         <Contacts />
       </>
     );
@@ -72,12 +72,6 @@ const App = () => {
 
 export default App;
 
-
-
-
-
-
-
 // import "./App.css";
 // import { useDispatch, useSelector } from "react-redux";
 // import { Typography, useMediaQuery } from "@mui/material";
@@ -91,7 +85,6 @@ export default App;
 // import ListOfContacts from "./Component/Contact/ListOfContacts";
 
 // /** */
-
 
 // const App = () => {
 //   let { statues } = useSelector((state) => state.contacts);
@@ -135,9 +128,6 @@ export default App;
 //           ساخت مخاطب جدید
 //         </CusLink>
 
-        
-
-        
 //         <Contacts />
 //       </>
 //     );

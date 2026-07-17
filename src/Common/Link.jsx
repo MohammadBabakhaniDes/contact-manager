@@ -23,9 +23,8 @@ const CusLink = ({
             navigate(to);
           }}
           className="shadow-md"
-          sx={{width: w}}
+          sx={{ width: w, fontSize: fs }}
           style={{
-            fontSize: fs,
             textDecoration: "none",
             backgroundColor: bcolor,
             color: color,
@@ -34,7 +33,7 @@ const CusLink = ({
             padding: `6px ${px} 6px ${px}`,
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",            
+            justifyContent: "center",
             margin: m,
           }}
         >

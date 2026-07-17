@@ -1,7 +1,6 @@
 import * as React from "react";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
-import IconButton from "@mui/material/IconButton";
 import { Search } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { searchContact } from "../../slices/ContactSlice";
@@ -20,42 +19,44 @@ export const SearchContact = () => {
 
   return (
     <>
-      <Paper      
+      <Paper
         component="form"
         sx={{
           p: "0 4px",
           display: search,
           alignItems: "center",
-          justifyContent: 'center',
+          justifyContent: "center",
           width: { xs: 280, sm: 400 },
           borderRadius: 20,
-          ml: {xs: 0, md: 2},
-          border: isDark ? "1px solid #555;": "1px solid #aaa",
-          position: 'relative'
+          mt: { xs: 0.7, md: 0.4 },
+          ml: { xs: 0, md: 2 },
+          border: isDark ? "1px solid #555;" : "1px solid #aaa",
+          position: "relative",
         }}
       >
         <InputBase
-          sx={{ ml: 1, flex: 1, borderRadius: 20, position: 'relative', bottom: 4 }}
+          sx={{
+            ml: 1,
+            flex: 1,
+            borderRadius: 20,
+            position: "relative",
+            bottom: 4,
+            fontSize: { xs: 12, sm: 14, md: 16 },
+          }}
           placeholder="جست و جوی نام مخاطب"
           inputProps={{ "aria-label": "search google maps" }}
           onChange={(e) => {
             dispatch(searchContact(e.target.value));
           }}
         />
-        <Search className="absolute left-4 text-gray-500" />
+        <Search
+          className="absolute left-4 top-[13px] text-gray-500"
+          sx={{ fontSize: { xs: 14, sm: 16, md: 18 } }}
+        />
       </Paper>
-
-      
     </>
   );
 };
-
-
-
-
-
-
-
 
 // import * as React from "react";
 // import Paper from "@mui/material/Paper";

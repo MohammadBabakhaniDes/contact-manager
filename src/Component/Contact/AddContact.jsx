@@ -60,7 +60,7 @@ const AddContact = () => {
 
 
     return (
-        <Card sx={{  mt: 10, position: "absolute", top: 0, right: 0, bottom: 0, left: 0, overflow: 'auto' }}>
+        <Card sx={{  mt: 10, position: "absolute", top: 0, right: 0, bottom: 0, left: 0, overflow: 'auto', background: isDark ? "#232323": "", boxShadow: "none" }}>
             <Typography variant="h5" textAlign="center" color={isDark ? darkblue :"rgba(0, 150, 39, 1)"} mt={4}>ساخت مخاطب جدید</Typography>
             <BackgroundImage />
             <Grid container>

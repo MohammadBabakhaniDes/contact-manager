@@ -7,9 +7,10 @@ import { grey } from "@mui/material/colors";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
 import { ContactSchema } from "../../validation/ContactValidation";
-import { darkblue, liver } from "../../colors/color";
+import { amber, darkblue, liver } from "../../colors/color";
 import { HeightCalculation } from "../../slices/UiSlice";
 import CustomForm from "../../Common/CustomForm";
+import { Person } from "@mui/icons-material";
 
 const EditContact = () => {
   let groupId;
@@ -51,12 +52,12 @@ const EditContact = () => {
 
   const EditContact = (values) => {
     console.log(Object.isFrozen(values));
-    dispatch(editContact({id: contactId, value: values}));
+    dispatch(editContact({ id: contactId, value: values }));
     navigate("/");
   };
 
   const initialValues = { ...contact };
-  console.log(initialValues);
+  console.log(contact);
 
   const formik = useFormik({
     initialValues,
@@ -122,22 +123,39 @@ const EditContact = () => {
             >
               <Grid container spacing={2}>
                 <Grid xs={12} md={0}>
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      display: { xs: "block", md: "none" },
-                      width: { xs: 150, sm: 200 },
-                      height: { xs: 150, sm: 200 },
-                      objectFit: "fill",
-                      borderRadius: "50%",                      
-                      margin: {
-                        xs: "0 auto",
-                        md: 0,
-                      },
-                    }}
-                    image={contact.photo}
-                    alt="Live from space album cover"
-                  />
+                  {contact.photo ? (
+                    <CardMedia
+                      component="img"
+                      sx={{
+                        display: { xs: "block", md: "none" },
+                        width: { xs: 150, sm: 200 },
+                        height: { xs: 150, sm: 200 },
+                        objectFit: "fill",
+                        borderRadius: "50%",
+                        margin: {
+                          xs: "0 auto",
+                          md: 0,
+                        },
+                      }}
+                      image={contact.photo}
+                      alt="Live from space album cover"
+                    />
+                  ) : (
+                    <Person
+                      sx={{
+                        color: isDark ? darkblue : amber,
+                        display: { xs: "block", md: "none" },
+                        width: { xs: 150, sm: 200 },
+                        height: { xs: 150, sm: 200 },
+                        objectFit: "fill",
+                        borderRadius: "50%",
+                        margin: {
+                          xs: "0 auto",
+                          md: 0,
+                        },
+                      }}
+                    />
+                  )}
                 </Grid>
                 <Grid
                   xs={11}
@@ -148,20 +166,35 @@ const EditContact = () => {
                   <CustomForm mt={40} edit formik={formik} inputs={inputs} />
                 </Grid>
                 <Grid xs={0} md={4} lg={3}>
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      display: { xs: "none", md: "block" },
-                      width: { md: 290, lg: 320 },
-                      objectFit: "fill",
-                      border: "2px solid rgba(255,255,255,.15)",
-                      borderRadius: 2,
-                      margin: 0,
-                      mt: 5,
-                    }}
-                    image={contact.photo}
-                    alt="Live from space album cover"
-                  />
+                  {contact.photo ? (
+                    <CardMedia
+                      component="img"
+                      sx={{
+                        display: { xs: "none", md: "block" },
+                        width: { md: 290, lg: 320 },
+                        objectFit: "fill",
+                        border: "2px solid rgba(255,255,255,.15)",
+                        borderRadius: 2,
+                        margin: 0,
+                        mt: 5,
+                      }}
+                      image={contact.photo}
+                      alt="Live from space album cover"
+                    />
+                  ) : (
+                    <Person
+                      sx={{
+                        color: isDark ? darkblue : amber,
+                        display: { xs: "none", md: "block" },
+                        width: { md: 290, lg: 320 },
+                        height: { md: 290, lg: 320 },
+                        objectFit: "fill",                        
+                        borderRadius: 2,
+                        margin: 0,
+                        mt: 5,
+                      }}
+                    />
+                  )}
                 </Grid>
               </Grid>
             </Card>

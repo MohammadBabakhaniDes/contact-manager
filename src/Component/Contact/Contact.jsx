@@ -42,7 +42,7 @@ const Contact = ({ contact }) => {
       >
         <Grid container>
           <Grid xs={12} md={3.2}>
-            <ContactImage contact={contact} />
+            <ContactImage contact={contact} isDark={isDark} />
           </Grid>
           <Grid
             xs={12}

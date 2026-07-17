@@ -1,5 +1,5 @@
 {
-  "homepage": "https://MohammadBabakhaniDes.github.io/contactManagerApp",
+  "homepage": "https://MohammadBabakhaniDes.github.io/contact-manager",
   "name": "tamrin",
   "version": "0.1.0",
   "private": true,
@@ -34,7 +34,7 @@
   "scripts": {
     "predeploy": "react-scripts build",
     "deploy": "gh-pages -d build",
-    "start": "concurrently \"react-scripts start\" \"cd server && npm start\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

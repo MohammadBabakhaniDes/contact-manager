@@ -15,15 +15,7 @@ import { useCallback, useEffect, useState } from "react";
 import { changePath } from "../../slices/ContactSlice";
 import { amber, darkblue, liver } from "../../colors/color";
 import { HeightCalculation } from "../../slices/UiSlice";
-import { PiUser } from "react-icons/pi";
-import {
-  Email,
-  Engineering,
-  Group,
-  Person,
-  Phone,
-  PhoneAndroid,
-} from "@mui/icons-material";
+import { Email, Engineering, Group, Person, Phone } from "@mui/icons-material";
 
 const ViewContact = () => {
   const { contactId } = useParams();
@@ -107,22 +99,39 @@ const ViewContact = () => {
           >
             <Grid container spacing={3}>
               <Grid xs={12} md={3.7}>
-                <CardMedia
-                  component="img"
-                  sx={{
-                    width: { xs: 150, sm: 200, md: 200, lg: 220 },
-                    height: { xs: 150, sm: 200, md: "auto" },
-                    objectFit: "fill",
-                    borderRadius: { xs: "50%", md: 2, lg: 4 },
-                    margin: {
-                      xs: "0 auto",
-                      md: "0 0 0 50px",
-                    },
-                    mt: { md: 3 },
-                  }}
-                  image={contact.photo}
-                  alt="Live from space album cover"
-                />
+                {contact.photo ? (
+                  <CardMedia
+                    component="img"
+                    sx={{
+                      width: { xs: 150, sm: 200, md: 200, lg: 220 },
+                      height: { xs: 150, sm: 200, md: "auto" },
+                      objectFit: "fill",
+                      borderRadius: { xs: "50%", md: 2, lg: 4 },
+                      margin: {
+                        xs: "0 auto",
+                        md: "0 0 0 50px",
+                      },
+                      mt: { md: 3 },
+                    }}
+                    image={contact.photo}
+                    alt="Live from space album cover"
+                  />
+                ) : (
+                  <Person
+                    sx={{
+                      color: isDark ? darkblue : amber,
+                      width: { xs: 150, sm: 200, md: 200, lg: 220 },
+                      height: { xs: 150, sm: 200, md: "auto" },
+                      objectFit: "fill",
+                      borderRadius: { xs: "50%", md: 2, lg: 4 },
+                      margin: {
+                        xs: "0 auto",
+                        md: "0 0 0 50px",
+                      },
+                      mt: { md: 3 },
+                    }}
+                  />
+                )}
               </Grid>
               <Grid
                 xs={12}

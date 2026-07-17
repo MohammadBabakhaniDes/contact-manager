@@ -6,9 +6,7 @@ import { prefixer } from 'stylis';
 import { darkTheme, lightTheme } from '../Theme/theme';
 import Navbar from '../Component/Navbar';
 import { Box } from '@mui/material';
-import { Router } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { grey } from '@mui/material/colors';
 
 
 const MainLayout = ({ children }) => {

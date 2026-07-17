@@ -2,9 +2,11 @@ import { Button } from "@mui/material";
 import Input from "./Input";
 import { useNavigate } from "react-router-dom";
 import { amber, red } from "../colors/color";
+import { useSelector } from "react-redux";
 
 const CustomForm = ({ formik, inputs = [], selects = [], ml, edit = false, mt = 55 }) => {
   const navigate = useNavigate();
+  const isDark = useSelector((state) => state.theme.isDark);
 
   return (
     <form style={{ marginTop: mt }} onSubmit={formik.handleSubmit}>
@@ -32,19 +34,21 @@ const CustomForm = ({ formik, inputs = [], selects = [], ml, edit = false, mt = 
       <Button
         type="submit"
         variant="contained"
+        color="success"
         sx={{
           ml: { xs: edit ? 0 : 5, sm: edit ? 0 : 8, md: edit ? 0 : 17 },
           my: 3,
           p: "8px 15px",
-          fontSize: 15,
-          background: amber,
+          fontSize: 15,        
+          
         }}
       >
         {edit ? "ویرایش مخاطب": "ساخت مخاطب"}
       </Button>
       <Button
         variant="contained"
-        sx={{ my: 3, ml: { xs: 2, md: 3 }, background: red }}
+        color="error"
+        sx={{ my: 3, ml: { xs: 2, md: 3 }, color: isDark ? "black" : "white" }}
         onClick={() => {
           navigate("/");
           formik.values = formik.initialValues;
