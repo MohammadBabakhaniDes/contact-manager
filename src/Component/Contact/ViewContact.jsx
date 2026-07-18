@@ -149,7 +149,7 @@ const ViewContact = () => {
                     mt: { xs: 0, md: 2 },
                     backgroundColor: isDark ? grey[900] : "#fff",
                     "&.MuiCardContent-root": {
-                      paddingBottom: { xs: 0.2, md: "24px" },
+                      paddingBottom: { xs: 0.2, md: "12px" },
                     },
                   }}
                 >
@@ -167,13 +167,13 @@ const ViewContact = () => {
                         alignItems: "center",
                         gap: 1,
                         color: isDark ? "rgba(255,255,255,.72)" : "#555",
-                        fontSize: { xs: 14, md: 16 },
+                        fontSize: { xs: 13, sm: 14, md: 16 },
                       }}
                     >
                       <Person
                         sx={{
                           color: isDark ? darkblue : amber,
-                          fontSize: { xs: 19, md: 24 },
+                          fontSize: { xs: 15, sm: 19, md: 24 },
                         }}
                       />
                       نام و نام خانوادگی &nbsp;{" "}
@@ -181,7 +181,7 @@ const ViewContact = () => {
 
                     <Typography
                       fontWeight="bold"
-                      sx={{ fontSize: { xs: 14, md: 16 } }}
+                      sx={{ fontSize: { xs: 13, sm: 14, md: 16 } }}
                     >
                       {contact.fullname}
                     </Typography>
@@ -200,21 +200,21 @@ const ViewContact = () => {
                         alignItems: "center",
                         gap: 1,
                         color: isDark ? "rgba(255,255,255,.72)" : "#555",
-                        fontSize: { xs: 14, md: 16 },
+                        fontSize: { xs: 13, sm: 14, md: 16 },
                       }}
                       fontWeight={"normal"}
                     >
                       <Phone
                         sx={{
                           color: isDark ? darkblue : amber,
-                          fontSize: { xs: 19, md: 24 },
+                          fontSize: { xs: 15, sm: 19, md: 24 },
                         }}
                       />
                       شماره موبایل &nbsp;{" "}
                     </Typography>{" "}
                     <Typography
                       fontWeight="bold"
-                      sx={{ fontSize: { xs: 14, md: 16 } }}
+                      sx={{ fontSize: { xs: 13, sm: 14, md: 16 } }}
                     >
                       {contact.mobile}
                     </Typography>
@@ -235,13 +235,13 @@ const ViewContact = () => {
                         alignItems: "center",
                         gap: 1,
                         color: isDark ? "rgba(255,255,255,.72)" : "#555",
-                        fontSize: { xs: 14, md: 16 },
+                        fontSize: { xs: 13, sm: 14, md: 16 },
                       }}
                     >
                       <Email
                         sx={{
                           color: isDark ? darkblue : amber,
-                          fontSize: { xs: 18, md: 24 },
+                          fontSize: { xs: 14, sm: 18, md: 24 },
                         }}
                       />
                       آدرس ایمیل &nbsp;{" "}
@@ -250,7 +250,7 @@ const ViewContact = () => {
                     <Typography
                       fontWeight="bold"
                       //sx={{ wordBreak: "break-all" }}
-                      sx={{ fontSize: { xs: 14, md: 16 } }}
+                      sx={{ fontSize: { xs: 13, sm: 14, md: 16 } }}
                     >
                       {contact.email}
                     </Typography>
@@ -271,14 +271,14 @@ const ViewContact = () => {
                         alignItems: "center",
                         gap: 1,
                         color: isDark ? "rgba(255,255,255,.72)" : "#555",
-                        fontSize: { xs: 14, md: 16 },
+                        fontSize: { xs: 13, sm: 14, md: 16 },
                       }}
                     >
                       {" "}
                       <Engineering
                         sx={{
                           color: isDark ? darkblue : amber,
-                          fontSize: { xs: 19, md: 24 },
+                          fontSize: { xs: 15, sm: 19, md: 24 },
                         }}
                       />
                       شغل &nbsp;{" "}
@@ -286,7 +286,7 @@ const ViewContact = () => {
 
                     <Typography
                       fontWeight="bold"
-                      sx={{ fontSize: { xs: 14, md: 16 } }}
+                      sx={{ fontSize: { xs: 13, sm: 14, md: 16 } }}
                     >
                       {contact.job}
                     </Typography>
@@ -306,21 +306,21 @@ const ViewContact = () => {
                         alignItems: "center",
                         gap: 1,
                         color: isDark ? "rgba(255,255,255,.72)" : "#555",
-                        fontSize: { xs: 14, md: 16 },
+                        fontSize: { xs: 13, sm: 14, md: 16 },
                       }}
                       fontWeight={"normal"}
                     >
                       <Group
                         sx={{
                           color: isDark ? darkblue : amber,
-                          fontSize: { xs: 19, md: 24 },
+                          fontSize: { xs: 15, sm: 19, md: 24 },
                         }}
                       />
                       گروه &nbsp;{" "}
                     </Typography>{" "}
                     <Typography
                       fontWeight="bold"
-                      sx={{ fontSize: { xs: 14, md: 16 } }}
+                      sx={{ fontSize: { xs: 13, sm: 14, md: 16 } }}
                     >
                       {group.name}
                     </Typography>
@@ -330,7 +330,7 @@ const ViewContact = () => {
             </Grid>
             <Grid xs={12} mb={2} mt={3}>
               <CusLink
-                fs={{ xs: 16, md: 20 }}
+                fs={{ xs: 15, sm: 16, md: 20 }}
                 fw="normal"
                 w={{ xs: "80%", md: 310 }}
                 px="3vw"
