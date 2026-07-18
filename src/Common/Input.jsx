@@ -26,7 +26,7 @@ const Input = ({
           helperText={error && touched ? error : null}
           label={label}
           sx={{
-            "& .MuiInputBase-input": { height: 2 },
+            "& .MuiInputBase-input": { height: 2, fontSize: { xs: "13px", sm: "14px", md: "16px" } },
             ml: ml, // 9vw
             "& .MuiInputBase-input": {
               minHeight: "7px !important",
@@ -62,7 +62,7 @@ const Input = ({
         helperText={error && touched ? error : null}
         label={label}
         sx={{
-          "& .MuiInputBase-input": { height: 2 },
+          "& .MuiInputBase-input": { height: 2, fontSize: { xs: "13px", sm: "14px", md: "16px" } },
           "& .MuiInputLabel-root": {
             fontSize: { xs: "14px", sm: "15px", md: "16px" },
           },
