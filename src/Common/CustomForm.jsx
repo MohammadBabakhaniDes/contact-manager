@@ -1,10 +1,16 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Input from "./Input";
 import { useNavigate } from "react-router-dom";
-import { amber, red } from "../colors/color";
 import { useSelector } from "react-redux";
 
-const CustomForm = ({ formik, inputs = [], selects = [], ml, edit = false, mt = 55 }) => {
+const CustomForm = ({
+  formik,
+  inputs = [],
+  selects = [],
+  ml,
+  edit = false,
+  mt = 55,
+}) => {
   const navigate = useNavigate();
   const isDark = useSelector((state) => state.theme.isDark);
 
@@ -12,7 +18,8 @@ const CustomForm = ({ formik, inputs = [], selects = [], ml, edit = false, mt = 
     <form style={{ marginTop: mt }} onSubmit={formik.handleSubmit}>
       {inputs.map((input) => (
         <Input
-          ml={ml}
+          edit={edit}
+          ml={{ xs: 0, md: ml }}
           touched={formik.touched[input.valueOfFormikName]}
           error={formik.errors[input.valueOfFormikName]}
           formik={{ ...formik.getFieldProps(input.valueOfFormikName) }}
@@ -21,7 +28,8 @@ const CustomForm = ({ formik, inputs = [], selects = [], ml, edit = false, mt = 
       ))}
       {selects.map((select) => (
         <Input
-          ml={ml}
+          edit={edit}
+          ml={{ xs: 0, md: ml }}
           select={true}
           menuOfSelect={select.menuOfSelect}
           touched={formik.touched[select.valueOfFormikName]}
@@ -31,51 +39,48 @@ const CustomForm = ({ formik, inputs = [], selects = [], ml, edit = false, mt = 
         />
       ))}
 
-      <Button
-        type="submit"
-        variant="contained"
-        color="success"
+      <Box
         sx={{
-          ml: { xs: edit ? 0 : 5, sm: edit ? 0 : 8, md: edit ? 0 : 17 },
-          my: 3,
-          p: "8px 15px",
-          fontSize: 15,        
-          
+          mx: { xs: 4, sm: edit ? 5 : 17, md: 0 },
+          mt: 0,
         }}
       >
-        {edit ? "ویرایش مخاطب": "ساخت مخاطب"}
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        sx={{ my: 3, ml: { xs: 2, md: 3 }, color: isDark ? "black" : "white" }}
-        onClick={() => {
-          navigate("/");
-          formik.values = formik.initialValues;
-        }}
-      >
-        انصراف
-      </Button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="success"
+          sx={{
+            ml: { xs: 0, sm: 0, md: edit ? 0 : "9vw" },
+            my: 3,
+            p: { xs: "6px 14px", sm: "7px 15px", md: "7px 17px" },
+            fontSize: { xs: 12, sm: 13, md: 15 },
+          }}
+        >
+          {edit ? "ویرایش مخاطب" : "ساخت مخاطب"}
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          sx={{
+            my: 3,
+            ml: { xs: 2, md: 3 },
+            color: isDark ? "black" : "white",
+            p: { xs: "6px 10px", sm: "7px 12px", md: "7px 16px" },
+            fontSize: { xs: 12, sm: 13, md: 15 },
+          }}
+          onClick={() => {
+            navigate("/");
+            formik.values = formik.initialValues;
+          }}
+        >
+          انصراف
+        </Button>
+      </Box>
     </form>
   );
 };
 
 export default CustomForm;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import { Button } from "@mui/material";
 // import Input from "./Input";

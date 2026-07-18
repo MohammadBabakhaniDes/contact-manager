@@ -43,13 +43,13 @@ const App = () => {
         <CusLink
           m="12px 0 0 0"
           to={"contacts/add"}
-          w={{ xs: 160,sm: 180, md: 232 }}
+          w={{ xs: 165, sm: 180, md: 232 }}
           color={isDark ? "#fff" : "#000"}
           bcolor={isDark ? darkblue : amber}
           fw="normal"
           icon={
             <AddCircle
-              sx={{ ml: 0.5, mt: 0.1, fontSize: { xs: 13, sm: 14, md: 15 } }}
+              sx={{ ml: 1, mt: 0.1, fontSize: { xs: 14, sm: 15, md: 18 } }}
             />
           }
           px={"2vw"}

@@ -1,7 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changePath, editContact } from "../../slices/ContactSlice";
-import { Box, Card, CardMedia, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardMedia,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { grey } from "@mui/material/colors";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -27,6 +34,8 @@ const EditContact = () => {
   const isDark = useSelector((state) => state.theme.isDark);
   const [docHeight, setDocHeight] = useState(0);
   const { pathname } = useLocation();
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
   useEffect(() => {
     dispatch(changePath(false));
@@ -96,16 +105,15 @@ const EditContact = () => {
             left: 0,
             width: { xs: "95%", sm: 560, md: 850, lg: 1220 },
             m: "0 auto",
-            mt: 13,
+            mt: { xs: 11.2, md: 13 },
             backgroundColor: isDark ? grey[900] : "",
           }}
         >
           <div ref={measuredRef}>
             <Typography
               variant="h5"
-              fontWeight="bold"
-              fontSize={27}
-              mb={4}
+              sx={{ fontSize: { xs: 17, md: 27 }, mb: {xs: 3.5, md: 4} }}
+              fontWeight="bold"              
               color={isDark ? darkblue : "rgb(0, 133, 153)"}
               textAlign="center"
             >
@@ -115,7 +123,7 @@ const EditContact = () => {
               sx={{
                 boxShadow: 4,
                 // padding: "16px 0 16px 10px",
-                p: 5,
+                p: { xs: "15px 0 10px 0", md: 5 },
                 borderRadius: 4,
                 mb: "10px !important",
                 backgroundColor: isDark ? liver : "white",
@@ -158,12 +166,12 @@ const EditContact = () => {
                   )}
                 </Grid>
                 <Grid
-                  xs={11}
+                  xs={12}
                   md={7}
                   lg={8}
                   sx={{ display: "flex", flexDirection: "column", pr: 1.9 }}
                 >
-                  <CustomForm mt={40} edit formik={formik} inputs={inputs} />
+                  <CustomForm mt={isMdUp ? 40 : 8} edit formik={formik} inputs={inputs} />
                 </Grid>
                 <Grid xs={0} md={4} lg={3}>
                   {contact.photo ? (
@@ -188,7 +196,7 @@ const EditContact = () => {
                         display: { xs: "none", md: "block" },
                         width: { md: 290, lg: 320 },
                         height: { md: 290, lg: 320 },
-                        objectFit: "fill",                        
+                        objectFit: "fill",
                         borderRadius: 2,
                         margin: 0,
                         mt: 5,

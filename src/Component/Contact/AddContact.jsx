@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { changePath, createContact } from "../../slices/ContactSlice";
 import { useEffect } from "react";
-import { Card, Typography } from "@mui/material";
+import { Card, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import CustomForm from "../../Common/CustomForm";
 import { useNavigate } from "react-router-dom";
@@ -10,85 +10,95 @@ import { useFormik } from "formik";
 import { ContactSchema } from "../../validation/ContactValidation";
 import { darkblue } from "../../colors/color";
 
-
 const AddContact = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const isDark = useSelector((state) => state.theme.isDark);
-    const groups = useSelector(state => state.groups.items);
-    const contacts = useSelector(state => state.contacts.items);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const theme = useTheme();
+  const isDark = useSelector((state) => state.theme.isDark);
+  const groups = useSelector((state) => state.groups.items);
+  const contacts = useSelector((state) => state.contacts.items);
+  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
-    useEffect(() => {
-        dispatch(changePath(false));
-    }, []);
+  useEffect(() => {
+    dispatch(changePath(false));
+  }, []);
 
-    const createContactForm = (values) => {        
-        values.id = contacts[contacts.length - 1].id + 1;
-        dispatch(createContact(values));
-        navigate("/");
-    }
+  const createContactForm = (values) => {
+    values.id = contacts[contacts.length - 1].id + 1;
+    dispatch(createContact(values));
+    navigate("/");
+  };
 
-    const initialValues = {
-        fullname: "",
-        photo: "",
-        mobile: "",
-        email: "",
-        job: "",
-        group: ""
-    };
+  const initialValues = {
+    fullname: "",
+    photo: "",
+    mobile: "",
+    email: "",
+    job: "",
+    group: "",
+  };
 
-    const formik = useFormik({
-        initialValues,
-        validationSchema: ContactSchema,
-        onSubmit: (values) => {
-            createContactForm(values);
-            console.log(values);
-        }
-    });
+  const formik = useFormik({
+    initialValues,
+    validationSchema: ContactSchema,
+    onSubmit: (values) => {
+      createContactForm(values);
+      console.log(values);
+    },
+  });
 
-    const inputs = [
-        {valueOfFormikName: "fullname", label: "نام و نام خانوادگی"},
-        {valueOfFormikName: "photo", label: "آدرس تصویر"},
-        {valueOfFormikName: "mobile", label: "شماره موبایل"},
-        {valueOfFormikName: "email", label: "آدرس ایمیل"},
-        {valueOfFormikName: "job", label: "شغل"},
-    ];
+  const inputs = [
+    { valueOfFormikName: "fullname", label: "نام و نام خانوادگی" },
+    { valueOfFormikName: "photo", label: "آدرس تصویر" },
+    { valueOfFormikName: "mobile", label: "شماره موبایل" },
+    { valueOfFormikName: "email", label: "آدرس ایمیل" },
+    { valueOfFormikName: "job", label: "شغل" },
+  ];
 
-    const selects = [
-        {valueOfFormikName: "group", label: "انتخاب گروه", menuOfSelect: groups},        
-    ];
+  const selects = [
+    { valueOfFormikName: "group", label: "انتخاب گروه", menuOfSelect: groups },
+  ];
 
-
-    return (
-        <Card sx={{  mt: 10, position: "absolute", top: 0, right: 0, bottom: 0, left: 0, overflow: 'auto', background: isDark ? "#232323": "", boxShadow: "none" }}>
-            <Typography variant="h5" textAlign="center" color={isDark ? darkblue :"rgba(0, 150, 39, 1)"} mt={4}>ساخت مخاطب جدید</Typography>
-            <BackgroundImage />
-            <Grid container>
-                <Grid xs={9} md={5} lg={3.6}>
-                    <CustomForm
-                        ml="9vw"
-                        formik={formik}
-                        inputs={inputs}
-                        selects={selects}
-                    />
-                </Grid>
-            </Grid>
-        </Card>
-    );
-}
+  return (
+    <Card
+      sx={{
+        mt: 10,
+        position: "absolute",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        overflow: "auto",
+        background: isDark ? "#232323" : "",
+        boxShadow: "none",
+      }}
+    >
+      <Typography
+        sx={{ fontSize: { xs: 17, sm: 20, md: 24 }, mt: { xs: 2, md: 4 } }}
+        variant="h5"
+        textAlign="center"
+        color={isDark ? darkblue : "rgba(0, 150, 39, 1)"}
+        // mt={4}
+      >
+        ساخت مخاطب جدید
+      </Typography>
+      <BackgroundImage />
+      <Grid container>
+        <Grid xs={12} md={5} lg={3.6}>
+          <CustomForm
+            ml="9vw"
+            mt={isMdUp ? 55 : 32}
+            formik={formik}
+            inputs={inputs}
+            selects={selects}
+          />
+        </Grid>
+      </Grid>
+    </Card>
+  );
+};
 
 export default AddContact;
-
-
-
-
-
-
-
-
-
-
-
 
 // import { useDispatch, useSelector } from "react-redux";
 // import { changePath, createContact } from "../../slices/ContactSlice";
@@ -100,7 +110,6 @@ export default AddContact;
 // import BackgroundImage from "../HelperContact/BackgroundImage";
 // import { useFormik } from "formik";
 // import { ContactSchema } from "../../validation/ContactValidation";
-
 
 // const AddContact = () => {
 //     const dispatch = useDispatch();
@@ -143,9 +152,8 @@ export default AddContact;
 //     ];
 
 //     const selects = [
-//         {valueOfFormikName: "group", label: "انتخاب گروه", menuOfSelect: groups},        
+//         {valueOfFormikName: "group", label: "انتخاب گروه", menuOfSelect: groups},
 //     ];
-
 
 //     return (
 //         <Card sx={{  mt: 10, position: "absolute", top: 0, right: 0, bottom: 0, left: 0, overflow: 'auto' }}>

@@ -35,7 +35,7 @@ const Navbar = () => {
           <Box sx={{ display: { xs: path ? "none" : "flex", md: "flex" } }}>
             <ContactsSharp
               sx={{
-                mt: { xs: 3, md: 3 },
+                mt: { xs: 3.2, md: 3 },
                 mr: 1.5,
                 fontSize: { xs: "15px", md: "23px" },
               }}
@@ -43,8 +43,8 @@ const Navbar = () => {
             <Typography
               variant="h6"
               sx={{
-                fontSize: { xs: "13px", md: "18px" },
-                mt: { xs: 2.5, md: 2.5 },
+                fontSize: { xs: "15px", md: "18px" },
+                mt: { xs: 2.6, md: 2.5 },
               }}
               color="text.primary"
             >
