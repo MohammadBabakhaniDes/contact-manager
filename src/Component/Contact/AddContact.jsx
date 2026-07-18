@@ -84,6 +84,7 @@ const AddContact = () => {
       </Typography>
       <BackgroundImage />
       <Grid container>
+        
         <Grid xs={12} md={5} lg={3.6}>
           <CustomForm
             ml="9vw"

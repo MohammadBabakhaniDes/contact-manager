@@ -68,18 +68,20 @@ const ViewContact = () => {
           right: 0,
           bottom: 0,
           left: 0,
-          width: { xs: "95%", sm: "70%", md: 850, lg: 1100 },
+          width: { xs: "98%", sm: "70%", md: 850, lg: 1100 },
           m: "0 auto",
-          mt: 13,
+          mt: { xs: 12, md: 13 },
         }}
       >
         <div ref={measuredRef}>
           <Typography
             variant="h5"
             fontWeight="bold"
-            fontSize={27}
-            mb={5}
-            mt={1}
+            sx={{
+              fontSize: { xs: 19, md: 27 },
+              mt: { xs: 0, md: 1 },
+              mb: { xs: 1, md: 5 },
+            }}
             color={isDark ? darkblue : amber}
             textAlign="center"
           >
@@ -146,6 +148,9 @@ const ViewContact = () => {
                     borderRadius: 2,
                     mt: { xs: 0, md: 2 },
                     backgroundColor: isDark ? grey[900] : "#fff",
+                    "&.MuiCardContent-root": {
+                      paddingBottom: { xs: 0.2, md: "24px" },
+                    },
                   }}
                 >
                   <Typography
@@ -162,13 +167,22 @@ const ViewContact = () => {
                         alignItems: "center",
                         gap: 1,
                         color: isDark ? "rgba(255,255,255,.72)" : "#555",
+                        fontSize: { xs: 14, md: 16 },
                       }}
                     >
-                      <Person sx={{ color: isDark ? darkblue : amber }} />
+                      <Person
+                        sx={{
+                          color: isDark ? darkblue : amber,
+                          fontSize: { xs: 19, md: 24 },
+                        }}
+                      />
                       نام و نام خانوادگی &nbsp;{" "}
                     </Typography>
 
-                    <Typography fontWeight="bold">
+                    <Typography
+                      fontWeight="bold"
+                      sx={{ fontSize: { xs: 14, md: 16 } }}
+                    >
                       {contact.fullname}
                     </Typography>
                   </Typography>
@@ -186,13 +200,24 @@ const ViewContact = () => {
                         alignItems: "center",
                         gap: 1,
                         color: isDark ? "rgba(255,255,255,.72)" : "#555",
+                        fontSize: { xs: 14, md: 16 },
                       }}
                       fontWeight={"normal"}
                     >
-                      <Phone sx={{ color: isDark ? darkblue : amber }} />
+                      <Phone
+                        sx={{
+                          color: isDark ? darkblue : amber,
+                          fontSize: { xs: 19, md: 24 },
+                        }}
+                      />
                       شماره موبایل &nbsp;{" "}
                     </Typography>{" "}
-                    {contact.mobile}
+                    <Typography
+                      fontWeight="bold"
+                      sx={{ fontSize: { xs: 14, md: 16 } }}
+                    >
+                      {contact.mobile}
+                    </Typography>
                   </Typography>
                   <Divider sx={{ background: "rgba(0,0,0,0.08)" }} />
                   <Typography
@@ -210,15 +235,22 @@ const ViewContact = () => {
                         alignItems: "center",
                         gap: 1,
                         color: isDark ? "rgba(255,255,255,.72)" : "#555",
+                        fontSize: { xs: 14, md: 16 },
                       }}
                     >
-                      <Email sx={{ color: isDark ? darkblue : amber }} />
+                      <Email
+                        sx={{
+                          color: isDark ? darkblue : amber,
+                          fontSize: { xs: 18, md: 24 },
+                        }}
+                      />
                       آدرس ایمیل &nbsp;{" "}
                     </Typography>
 
                     <Typography
                       fontWeight="bold"
                       //sx={{ wordBreak: "break-all" }}
+                      sx={{ fontSize: { xs: 14, md: 16 } }}
                     >
                       {contact.email}
                     </Typography>
@@ -239,14 +271,25 @@ const ViewContact = () => {
                         alignItems: "center",
                         gap: 1,
                         color: isDark ? "rgba(255,255,255,.72)" : "#555",
+                        fontSize: { xs: 14, md: 16 },
                       }}
                     >
                       {" "}
-                      <Engineering sx={{ color: isDark ? darkblue : amber }} />
+                      <Engineering
+                        sx={{
+                          color: isDark ? darkblue : amber,
+                          fontSize: { xs: 19, md: 24 },
+                        }}
+                      />
                       شغل &nbsp;{" "}
                     </Typography>
 
-                    <Typography fontWeight="bold">{contact.job}</Typography>
+                    <Typography
+                      fontWeight="bold"
+                      sx={{ fontSize: { xs: 14, md: 16 } }}
+                    >
+                      {contact.job}
+                    </Typography>
                   </Typography>
                   <Divider sx={{ background: "rgba(0,0,0,0.08)" }} />
                   <Typography
@@ -263,25 +306,36 @@ const ViewContact = () => {
                         alignItems: "center",
                         gap: 1,
                         color: isDark ? "rgba(255,255,255,.72)" : "#555",
+                        fontSize: { xs: 14, md: 16 },
                       }}
                       fontWeight={"normal"}
                     >
-                      <Group sx={{ color: isDark ? darkblue : amber }} />
+                      <Group
+                        sx={{
+                          color: isDark ? darkblue : amber,
+                          fontSize: { xs: 19, md: 24 },
+                        }}
+                      />
                       گروه &nbsp;{" "}
                     </Typography>{" "}
-                    {group.name}
+                    <Typography
+                      fontWeight="bold"
+                      sx={{ fontSize: { xs: 14, md: 16 } }}
+                    >
+                      {group.name}
+                    </Typography>
                   </Typography>
                 </CardContent>
               </Grid>
             </Grid>
             <Grid xs={12} mb={2} mt={3}>
               <CusLink
-                fs={20}
+                fs={{ xs: 16, md: 20 }}
                 fw="normal"
                 w={{ xs: "80%", md: 310 }}
                 px="3vw"
                 to={"/"}
-                m="32px auto 0 auto"
+                m={{ xs: "0 auto 0 auto", md: "32px auto 0 auto" }}
                 bcolor={isDark ? darkblue : amber}
               >
                 برگشت به صفحه اصلی
