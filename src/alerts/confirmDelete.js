@@ -5,7 +5,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { Box, MenuItem, Typography } from "@mui/material";
+import { Box, MenuItem, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { PiWarningCircleLight } from "react-icons/pi";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../slices/ContactSlice";
@@ -13,6 +13,8 @@ import { deleteContact } from "../slices/ContactSlice";
 const AlertDelete = ({ contact, isDark }) => {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
   const handleClose = () => {
     setOpen(false);
@@ -40,19 +42,19 @@ const AlertDelete = ({ contact, isDark }) => {
       >
         <Box textAlign={"center"}>
           <PiWarningCircleLight
-            fontSize="7vw"
+            fontSize={isMdUp ? 107 : 70}
             color="#dd6b55"
-            style={{ margin: "20px auto 0 auto" }}
+            style={{ margin: isMdUp ? "20px auto 0 auto" : "5px auto 0 auto" }}
           />
         </Box>
-        <DialogTitle id="alert-dialog-title">
-          <Typography textAlign={"center"} variant="h4" mb={1}>
+        <DialogTitle id="alert-dialog-title" sx={{padding: {xs: "12px 24px", md: "16px 24px"}}}>
+          <Typography textAlign={"center"} sx={{fontSize: { xs: 23, sm: 25, md: 34 }}} variant="h4" mb={1}>
             حذف مخاطب!
           </Typography>
         </DialogTitle>
-        <DialogContent>
+        <DialogContent sx={{padding: {xs: "0 24px 6px 24px", md: "0 24px 20px 24px"}}}>
           <DialogContentText id="alert-dialog-description">
-            <Typography variant="h6" textAlign={"center"} mb={1}>
+            <Typography variant="h6" textAlign={"center"} sx={{fontSize: { xs: 14, sm: 16, md: 20 },}} mb={1}>
               مطمئنی که میخای مخاطب {contact.fullname} را حذف کنی؟
             </Typography>
           </DialogContentText>
@@ -65,6 +67,7 @@ const AlertDelete = ({ contact, isDark }) => {
               color: "#000",
               p: "8px 35px 8px 35px",
               mr: 2, 
+              fontSize: { xs: 12, sm: 14, md: 15 }
             }}
           >
             انصراف
@@ -79,6 +82,7 @@ const AlertDelete = ({ contact, isDark }) => {
               backgroundColor: "red",
               color: "#000",
               p: "8px 35px 8px 35px",
+              fontSize: { xs: 12, sm: 14, md: 15 }
             }}
           >
             تایید
